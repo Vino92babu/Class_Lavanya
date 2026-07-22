@@ -74,3 +74,6 @@ Welcome Vinoth
     * Have a
         * Nice Day.
 '''
+# print("Welcome Vinoth",end='\n\t *')
+# print(" Have a",end='\n\t\t')
+# print("* Nice Day.")
