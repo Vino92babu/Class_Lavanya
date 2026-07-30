@@ -152,12 +152,111 @@ A = "ViNoTh BaBu"
 # print(A.lower())
 # upper()-->to change the string into upper case.
 # islower():
-print(A.islower())
-print(A.isupper())
+# print(A.islower())
+# print(A.isupper())
 # swapcase--> it is used to interchange in string
-print(A)
-print(A.swapcase())
+# print(A)
+# print(A.swapcase())
 # tittle ()--> it is used to change each word 1st letter in string in captical letter.
 
 B  = " i am an supper hero"
-print(B.title())
+# print(B.title())
+# print(B.istitle())
+# startswith--> will check the given "startswith" input is gets satisfy or not.
+
+# C = "how are you"
+# print(C.startswith("How"))
+
+# D = ["Vinoth"]
+# endswith
+# print(C.endswith("you"))
+
+# print(C.isnumeric())
+# print(C.isalpha())
+# print(C.isalnum())
+
+# find()--> it is used to find the given "str" in variable $ o/p will be in index value.
+# E = "To me you"
+# print(E.find("2"))
+
+'''
+T -> 0  
+O ->1
+    ->2
+m 3
+E
+'''
+# replace() --> to replace the words in str
+
+# aa = "i hate you"
+# print(aa.replace("hate","like"))
+
+# strip()--> used to remove the given letters or specfic char in str
+# bb = "@#+python+*#@"
+# print(bb.strip("@"))
+
+# Lstrip --> To remove the char only in left side
+
+# cc = "#+@python+*#+"
+# print(cc.lstrip("#+"))
+
+# rstrip --> To remove the char only in right side 
+
+# print(cc.rstrip("#+"))
+
+# Ljust--> To add any symbol in right side of string --> Total string index should be [10]
+# cc = "python"
+# print(cc.ljust(10,'@'))
+# print(cc.rjust(1,"a"))
+
+# center()--> to add any symbol equally before and after the string
+# print(cc.center(11,"@"))
+
+
+
+"_______________________________________________________________________________________________________________________________________"
+
+# List
+#  Collection of elements
+'''
+A list containg items seperated by commas and enclosed with sq brackets ([])'''
+
+# fruits = "apple" --> String
+
+# Subject = "Python"
+
+# Student_names = ["Vinoth","lavanya","babu","ramu"]
+
+# print(Subject)
+# print(Student_names)
+
+# note: Similar to string indexs, list index also starts with Zero(0),and can sliced, concatenated and so on.
+
+# a_list = [1,2,5,"Vino"]
+# b_list = [3,4]
+
+# A = [4]
+# B = [3]
+# print(a_list) --> complete list
+# print(a_list[0])
+# print(a_list[1:3])
+# print(a_list[1:])
+
+# print(a_list*2)
+# print(a_list+b_list)
+
+# print(A+B)
+
+# update  list
+
+# "append()"
+
+# Num = [10,20,30,40,50,60]
+# Num[2] = 90 --> [10,20,90,40,50,60]
+# Num[0:4] = [1,2,3,4]
+
+# print(Num)
+
+# [1,2,3,90,50,60]
+
+# [1,2,90,3,4,60]
