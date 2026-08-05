@@ -325,12 +325,12 @@ sort() --> it is used to keep elements in accending order (0-1). And for string 
 
 # print(list_ITEM.count("Black"))
 
-# list_ITEM = ["Green","Black","Yellow","Black"]
+list_ITEM = ["Green","Black","Yellow","Black"]
 # list_ITEM.extend("Red")
 # list_ITEM.extend(2)
 # print(list_ITEM)
-# B = list_ITEM.insert(2,"red")
-# print(B)
+B = list_ITEM.insert(2,"red")
+print(B)
 
 # without index 
 # A = [1,2,3,4]
@@ -342,8 +342,8 @@ sort() --> it is used to keep elements in accending order (0-1). And for string 
 # print(A)
 
 # A = [1,2,3,4]
-# # A.remove(1)
-# # print(A)
+# A.remove(1)
+# print(A)
 # B = A.reverse()
 # print(B)
 
@@ -392,3 +392,65 @@ But To explicitly we can revome the an entire tuple, Just using the "del" statem
 
 # del bc [2]
 # print(bc)
+
+'''
+# Basic tuple operations:
+
+A = (10,"Vino",8.5)
+len() 
+Concatenation ("+")
+Repetition("*")
+Membership operator ("in")
+
+Build in methods 
+len()
+max()
+min()
+tuple()
+
+'''
+
+# A = (10,"Vino",8.5)
+# B = list(A)
+# B.remove(8.5)
+# A=tuple(B)
+# print(A)
+
+'''
+# Dictionary --> Dict is an unordered set of "Keys:value" pairs with rquirements that the keys are unique[within one dict]
+unlike sequences which are indexed by a range of number, dict are indexed by keys which can be any immutable type, String & numbrers can always be keys.
+
+'''
+A = {"rollno":5,"name":"Vinoth","dept":"ECE"}
+# a = {}
+
+# print(A["name"])
+# print(A["rollno"])
+
+# updating dict --> You can update a dict by adding a new entry or a key value pair
+
+# print(A)
+# A["dept"] = "CSE"
+# A["rollno"] = 3
+# print(A)
+
+# delete dict element: we can remove individual dict element by using 'del' statement
+
+# print(A)
+# del A["rollno"]
+# print(A)
+
+# del A
+# print(A)
+
+# Build in dict functions & Methods
+
+len()
+str()
+type()
+clear()
+copy()
+get()
+item()
+keys()
+Values()
