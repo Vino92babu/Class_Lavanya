@@ -329,8 +329,9 @@ list_ITEM = ["Green","Black","Yellow","Black"]
 # list_ITEM.extend("Red")
 # list_ITEM.extend(2)
 # print(list_ITEM)
-B = list_ITEM.insert(2,"red")
-print(B)
+# B = list_ITEM.insert(2,"red")
+list_ITEM.insert(2,"red")
+# print(list_ITEM)
 
 # without index 
 # A = [1,2,3,4]
@@ -345,7 +346,8 @@ print(B)
 # A.remove(1)
 # print(A)
 # B = A.reverse()
-# print(B)
+# A.reverse()
+# print(A)
 
 
 # A = [50,60,1,8,0,25,41,65,56,28,16] 
@@ -421,7 +423,7 @@ tuple()
 unlike sequences which are indexed by a range of number, dict are indexed by keys which can be any immutable type, String & numbrers can always be keys.
 
 '''
-A = {"rollno":5,"name":"Vinoth","dept":"ECE"}
+# A = {"rollno":5,"name":"Vinoth","dept":"ECE"}
 # a = {}
 
 # print(A["name"])
@@ -444,13 +446,80 @@ A = {"rollno":5,"name":"Vinoth","dept":"ECE"}
 # print(A)
 
 # Build in dict functions & Methods
+'''
+len() --> This method return length of dict --> syntax len(dict)
+str() --> This method produces a printable string representatiobn of a dict --> str(dict)
+type() --> This method return the type of the passed variable. --> type(dict)
+clear() --> This method removes all items from the dict. --> synatx : dict.clear()
+copy() --> This method return a copy of the dict --> dict.copy()
+get() --> The method return a value from the given Key. If the key is not available then returns default value "None" 
+item() -->  This method returns a list af dict (Key,Value) tuple pairs --> dict.items()
+keys() --> This returns a list of all available keys in the dict
+Values() --> This returns a list of all available keValuesys in the dict
+'''
+# print(A)
+# print("_____________________________")
+# print(len(A))
+# print(str(A))
+# print(type(A))
+# A.clear()
+# B = A.copy()
+# print(B)
+# print(A.get("year"))
+# print(A.items())
+# print(A.keys())
+# print(A.values())
 
-len()
-str()
-type()
-clear()
-copy()
-get()
-item()
-keys()
-Values()
+
+'''
+Set 
+Creating set --> we can create set by using curly braces "{}" or the set() function.
+'''
+
+# A = {1,2,3,4,5}
+# b = [] --> empty list
+# c =() --> empty tuple
+# D = {} --> empty dict
+# e = set() --> empty set
+# B = set([1,2,5,66,88]) 
+
+# adding elements in set  --> we can add elements to a set using add() method. 
+# A.add(34,43,22)
+# A.add(3)
+# print(A)
+# Removing  element --> used to remove using "remove()" or "discard()"
+# remove() --> Raises an error if the is not found.
+# discard()--> does not raises an error if the is not found.
+
+# A.remove(7)
+# A.discard(8)
+# print(A)
+# # membership testing --> "in" keyword 
+# print(2 in A)
+
+# Set operations
+# union --> The union of two  sets is a set containing all unique elements from both sets.
+# use the '|' or the union() method.
+A = {1,2,3,4,5}
+B = {4,5,6,7}
+# union_set = A|B
+# union_set = A.union(B)
+# print(union_set)
+
+# Intersection --> it if two set in a set contataing only the emlement that are present in both side.
+# use the '&' or the intersection() method.
+# c = A&B
+# C = A.intersection(B)
+# print(C)
+
+# Difference--> the differenece of two set is a set containg element that are in the first set not in second set. 
+# use the '-' or the intersection() method.
+
+# c = A-B
+# print(c)
+
+# symmentric difference --> "^" or "symentric_diffrenece"
+
+# c = A^B
+# C = A.symmetric_difference(B)
+# print(C)
