@@ -32,13 +32,13 @@ elif statement
 #     print("poor")
 
 
-Hours = int (input("Enter time in hours:"))
-if Hours <=12:
-    print("Its 12hrs clock")
-    if Hours >=6 and Hours <=12:
-        print("Good Morning")
-elif Hours >12 and Hours <=24:
-    print("Its 24hrs clock")
-    if 
+# Hours = int (input("Enter time in hours:"))
+# if Hours <=12:
+#     print("Its 12hrs clock")
+#     if Hours >=6 and Hours <=12:
+#         print("Good Morning")
+# elif Hours >12 and Hours <=24:
+#     print("Its 24hrs clock")
+#     if 
 
 
