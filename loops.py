@@ -5,7 +5,7 @@ for loop --> saying "do this same thing for item in a list of things.
 Looping through a string. --> 
 
 
-while loop
+while loop --> repeat a block of code for as a condition until gets failed
 
 
 '''
@@ -60,6 +60,46 @@ while loop
 # for i in range (1,305):
 #     if (i%2==0):
 #         count = count+1
-# print(count)       
- 
+# print(count) 
+# 
+#       
+
+# A = []
+# for i in range(10):
+#     Num = int(input("Enter_Num "+str(i+1)+":"))
+#     A.append(Num)
+# print(A)
         
+# vowles = "aeiou"
+# word = input("Enter a Word:")
+# count = 0
+# for ch in word:
+#     if ch.lower() in vowles:
+#         count = count+1
+# print(count)
+
+# while loop
+
+# i = 0
+# while i <=5:
+#     i = i+1
+#     print(i)
+
+# i = 0
+# while i <=5:
+#     print(i)
+#     i = i+1
+
+# i = 10
+
+# while i >=1:
+#     print(i)
+#     i = i-1
+
+num =int(input("Enter the number"))
+fact = 1
+while num >0 :
+    fact = fact*num
+    num = num-1
+print("Facrtorial:",fact)
+
