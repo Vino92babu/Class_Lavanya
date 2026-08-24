@@ -96,10 +96,10 @@ while loop --> repeat a block of code for as a condition until gets failed
 #     print(i)
 #     i = i-1
 
-num =int(input("Enter the number"))
-fact = 1
-while num >0 :
-    fact = fact*num
-    num = num-1
-print("Facrtorial:",fact)
+# num =int(input("Enter the number"))
+# fact = 1
+# while num >0 :
+#     fact = fact*num
+#     num = num-1
+# print("Facrtorial:",fact)
 
