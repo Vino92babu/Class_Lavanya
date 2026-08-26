@@ -46,15 +46,33 @@ def sub():
     a = 85
     b = 41
     return a - b
-result = sub()
-print(result)
+# result = sub()
+# print(result)
 
 
 # Return, with arguments
 
 def div(a,b):
     return a/b
-div()
+# div()
 
+
+choice = int(input("Enter the button: "))
+def firstfloor():
+    print("First_Floor")
+def secondfloor():
+    print("Second_Floor")
+def Thirdfloor():
+    print("Third_Floor")
+if choice == 1:
+    firstfloor()
+if choice == 2:
+    secondfloor()
+if choice == 3:
+    Thirdfloor()
+# if choice>3:
+#     print("Press the valid Button")
+else:
+    print("Press the valid Button")
 
 
