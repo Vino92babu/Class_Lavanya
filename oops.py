@@ -90,3 +90,29 @@ class Cat:
          print("Meow")
 for animal in (Dog(), Cat()):
     animal.sound()
+
+
+class BankAccount:
+    def __init__(self,balance):
+        self.__balance = balance     #private variable
+    def deposit(self, amount):
+        if amount>0:
+            self.__balance += amount
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance-= amount
+        else:
+            print("insufficient balance")
+    def get_balance(self):           # controlled access
+        return self.__balance
+acc = BankAccount(1000)
+acc.deposit(500)
+acc.withdraw(200)
+print(acc.get_balance())
+
+
+'''
+Encapasulation is the concept of bundling data and methods inside the data and restricting direct acc to the internal data. 
+in Python, this can be used by namining conventiobns  like _varible and namining conventiobns  like __varible
+
+'''
