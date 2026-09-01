@@ -28,4 +28,4 @@ def dropdown_static_demo():
     Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')).select_by_value("teach")
     Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')).select_by_index(0)
     Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')
-dropdown_static_demo()).select_by_visible_text("Consultant"). 
+dropdown_static_demo()).select_by_visible_text("Consultant")..
