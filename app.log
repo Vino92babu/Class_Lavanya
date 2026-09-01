@@ -1,0 +1,16 @@
+2026-08-29 20:24:08,966 - INFO - program started
+2026-08-29 20:24:08,967 - WARNING - low disk space dected
+2026-08-29 20:24:08,967 - ERROR - Somthing failded
+2026-08-29 20:24:08,967 - CRITICAL - program cannot continue
+2026-08-29 20:24:30,436 - INFO - program started
+2026-08-29 20:24:30,436 - WARNING - low disk space dected
+2026-08-29 20:24:30,436 - ERROR - Somthing failded
+2026-08-29 20:24:30,436 - CRITICAL - program cannot continue
+2026-08-29 20:27:23,541 - INFO - program started
+2026-08-29 20:27:23,541 - WARNING - low disk space dected
+2026-08-29 20:27:23,541 - ERROR - Somthing failded
+2026-08-29 20:27:23,541 - CRITICAL - program cannot continue
+2026-08-29 20:28:22,763 - INFO - program started
+2026-08-29 20:28:22,763 - WARNING - low disk space dected
+2026-08-29 20:28:22,765 - ERROR - Somthing failded
+2026-08-29 20:28:22,765 - CRITICAL - program cannot continue
