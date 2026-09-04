@@ -9,7 +9,6 @@ from selenium.webdriver.common.by import By
 # driver.find_element(By.NAME,"email").send_keys("abc@gmail.com")
 # # driver.find_element(By.ID,"exampleInputPassword1").send_keys("Admin123")
 # driver.find_element(By.CSS_SELECTOR,'input[placeholder="Password"]').send_keys("Admin123")
-
 ,click()
 
 
