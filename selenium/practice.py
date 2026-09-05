@@ -21,8 +21,17 @@ Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')).select_b
 
 # driver.get("https://rahulshettyacademy.com/dropdownsPractise/")
 # driver.maximize_window()
-# time.sleep(3)
 # driver.find_element(By.ID,"autosuggest").send_keys('ind')
+# time.sleep(3)
+# countries = driver.find_elements(By.XPATH,'//li[@class="ui-menu-item"]/a')
+# print(len(countries))
+# for country in countries:
+#     if country.text == "India":
+#         country.click()
+#         break
+# assert driver.find_element(By.XPATH,'//input[@id="autosuggest"]').get_attribute("value") == "India"
+# time.sleep(2)
+
 
 '''Checkbox_static'''
 # driver.get("https://rahulshettyacademy.com/AutomationPractice/")
@@ -46,11 +55,64 @@ Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')).select_b
 
 '''Radio Button'''
 
-driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+# driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+# driver.maximize_window()
+# driver.find_element(By.NAME,'radioButton').click()
+# assert driver.find_element(By.XPATH,'//input[@value="radio3"]').is_selected()
+# time.sleep(3)
+
+'''is_displayed --> use to find the elements is present on the page or not'''
+
+# driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+# driver.maximize_window()
+# driver.find_element(By.XPATH,'//input[@id="displayed-text"]').is_displayed()
+# assert driver.find_element(By.XPATH,'//input[@id="displayed-text"]').is_displayed()
+# driver.find_element(By.XPATH,'//input[@id="hide-textbox"]').click()
+# assert not driver.find_element(By.XPATH,'//input[@id="displayed-text"]').is_displayed()
+
+'''Alerts'''
+# Name = "Vinoth"
+# driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+# driver.maximize_window()
+# driver.find_element(By.XPATH,'//input[@id="name"]').send_keys("lavanya")
+# driver.find_element(By.XPATH,'//input[@id="alertbtn"]').click()
+# time.sleep(2)
+# alerts = driver.switch_to.alert
+# alerts_text = alerts.text
+# print(alerts_text)
+# assert not Name in alerts_text
+# alerts.accept()
+# time.sleep(2)
+# driver.find_element(By.XPATH,'//input[@id="confirmbtn"]').click()
+# time.sleep(1)
+# alerts.dismiss()
+# time.sleep(1)
+
+'''Wait practice'''
+'''Implicictly wait'''
+
+'''Search the product'''
+driver.implicitly_wait(2)
+driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.maximize_window()
-driver.find_element(By.NAME,'radioButton').click()
-assert driver.find_element(By.XPATH,'//input[@value="radio3"]').is_selected()
+page_title = driver.title
+assert page_title == "GreenKart - veg and fruits kart"
+Search_box = driver.find_element(By.CSS_SELECTOR,'input[class="search-keyword"]')
+Search_box.send_keys("be")
+search_button = driver.find_element(By.CSS_SELECTOR,'button[class="search-button"]')
+search_button.click()
 time.sleep(3)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
