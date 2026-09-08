@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 import time
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 driver = webdriver.Chrome()
 
 '''
@@ -101,7 +102,7 @@ Search_box = driver.find_element(By.CSS_SELECTOR,'input[class="search-keyword"]'
 Search_box.send_keys("be")
 search_button = driver.find_element(By.CSS_SELECTOR,'button[class="search-button"]')
 search_button.click()
-time.sleep(3)
+# time.sleep(3)
 
 # validating on product displayed
 
@@ -122,11 +123,11 @@ assert total_products_count > 0
 # validate the number of product count with len of total_products_count
 count = 0
 for product in total_products:
-    product.find_element(By.XPATH,'//div[@class="product-action"]/button').click()
+    product.find_element(By.XPATH,'.//div[@class="product-action"]/button').click()
     count = count+1
 print("count :",count)
 assert count == total_products_count
-time.sleep(2)
+# time.sleep(2)
 
 # validating item_count == count == total_product_count and click an add to cart btn and proceed with ceckout btn
 
@@ -136,22 +137,28 @@ print("item_count :", item_count)
 assert item_count == count == total_products_count
 cart_btn = driver.find_element(By.CSS_SELECTOR,'img[alt="Cart"]')
 cart_btn.click()
+chk_out_btn = driver.find_element(By.XPATH,'//button[text()="PROCEED TO CHECKOUT"]')
+chk_out_btn.click()
 
+# explicitly_wait_adding
 
+apply_promo_text = driver.find_element(By.CSS_SELECTOR,".promoCode")
+apply_promo_text.send_keys("rahulshettyacademy")
+apply_btn = driver.find_element(By.CSS_SELECTOR,".promoBtn")
+apply_btn.click()
+wait = WebDriverWait(driver,15)
+wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR,".promoInfo")))
+succ_promo_text = driver.find_element(By.CSS_SELECTOR,".promoInfo")
+print(succ_promo_text.text)
+assert succ_promo_text.text == "Code applied ..!"
 
+# Other Validation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+total_price = driver.find_elements(By.XPATH,'//td[5]/p[@class="amount"]')
+total_sum = 0
+for total_item_price in total_price:
+    price = int(total_item_price.text)
+    total_sum = total_sum + price
+print(total_sum)
 
 
