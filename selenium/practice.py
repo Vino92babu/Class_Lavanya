@@ -103,6 +103,39 @@ search_button = driver.find_element(By.CSS_SELECTOR,'button[class="search-button
 search_button.click()
 time.sleep(3)
 
+# validating on product displayed
+
+expected_list = ['Cucumber - 1 Kg','Beetroot - 1 Kg','Beans - 1 Kg','Raspberry - 1/4 Kg','Strawberry - 1/4 Kg']
+actual_list = [ ]
+total_list = driver.find_elements(By.XPATH,'//h4[@class="product-name"]')
+for list in total_list:
+    actual_list.append(list.text)
+print(actual_list)
+assert expected_list == actual_list
+
+# Validating the number of product count should be > 0
+total_products = driver.find_elements(By.CSS_SELECTOR,'div[class="product"]')
+total_products_count = len(total_products)
+print("total_products_count: ",total_products_count)
+assert total_products_count > 0
+
+# validate the number of product count with len of total_products_count
+count = 0
+for product in total_products:
+    product.find_element(By.XPATH,'//div[@class="product-action"]/button').click()
+    count = count+1
+print("count :",count)
+assert count == total_products_count
+time.sleep(2)
+
+# validating item_count == count == total_product_count and click an add to cart btn and proceed with ceckout btn
+
+item = driver.find_element(By.XPATH,'//tbody/tr[1]/td/strong')
+item_count = int(item.text)
+print("item_count :", item_count)
+assert item_count == count == total_products_count
+cart_btn = driver.find_element(By.CSS_SELECTOR,'img[alt="Cart"]')
+cart_btn.click()
 
 
 
