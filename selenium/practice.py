@@ -152,7 +152,7 @@ succ_promo_text = driver.find_element(By.CSS_SELECTOR,".promoInfo")
 print(succ_promo_text.text)
 assert succ_promo_text.text == "Code applied ..!"
 
-# Other Validation
+# Table Validation
 
 total_price = driver.find_elements(By.XPATH,'//td[5]/p[@class="amount"]')
 total_sum = 0
