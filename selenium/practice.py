@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+from selenium.webdriver import ActionChains
 import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -93,6 +94,7 @@ Select(driver.find_element(By.XPATH,'//select[@class="form-control"]')).select_b
 '''Implicictly wait'''
 
 '''Search the product'''
+'''
 driver.implicitly_wait(2)
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.maximize_window()
@@ -152,7 +154,7 @@ succ_promo_text = driver.find_element(By.CSS_SELECTOR,".promoInfo")
 print(succ_promo_text.text)
 assert succ_promo_text.text == "Code applied ..!"
 
-# Table Validation
+# Other Validation
 
 total_price = driver.find_elements(By.XPATH,'//td[5]/p[@class="amount"]')
 total_sum = 0
@@ -160,5 +162,62 @@ for total_item_price in total_price:
     price = int(total_item_price.text)
     total_sum = total_sum + price
 print(total_sum)
+total_amount = int(driver.find_element(By.XPATH,'//span[@class="totAmt"]')).text
+assert total_sum == int(total_amount), "gets matched"
+'''
+
+# Mouse_action_interaction.
+'''
+driver.implicitly_wait(2)
+driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+driver.maximize_window()
+Page_title = driver.title
+print(Page_title)
+assert Page_title == "Practice Page"
+action = ActionChains(driver)
+mouse_overbtn = driver.find_element(By.ID,'mousehover')
+action.move_to_element(mouse_overbtn).perform()
+top_option = driver.find_element(By.LINK_TEXT,'Top')
+action.move_to_element(top_option).click().perform()
+'''
+
+# Handel child window/tab
+'''
+driver.implicitly_wait(2)
+driver.get("https://the-internet.herokuapp.com/windows")
+driver.maximize_window()
+Page_title = driver.title
+print(Page_title)
+assert Page_title == 'The Internet'
+child_window_btn = driver.find_element(By.LINK_TEXT,'Click Here')
+child_window_btn.click()
+windows_opened = driver.window_handles
+driver.switch_to.window(windows_opened[1])
+Page_title = driver.title
+window_name = driver.find_element(By.TAG_NAME,'h3').text
+print(window_name)
+assert Page_title == window_name
+driver.close()
+driver.switch_to.window(windows_opened[0])
+Page_title = driver.title
+print(Page_title)
+assert Page_title == 'The Internet' , "Page is not landed properly"
+'''
+# iframe
+
+driver.implicitly_wait(2)
+driver.get("https://demo.automationtesting.in/Frames.html")
+driver.maximize_window()
+Page_title = driver.title
+assert Page_title == "Frames"
+driver.switch_to.frame("singleframe")
+frame_name = driver.find_element(By.TAG_NAME,'h5').text
+assert frame_name == 'iFrame Demo'
+print(frame_name)
+text_box = driver.find_element(By.XPATH,'//input[@type="text"]')
+text_box.clear()
+text_box.send_keys("Bring my laptop")
+
+
 
 
