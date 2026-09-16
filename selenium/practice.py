@@ -6,6 +6,7 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 driver = webdriver.Chrome()
+import openpyxl
 
 '''
 #Drop_down_Static 
@@ -205,19 +206,67 @@ assert Page_title == 'The Internet' , "Page is not landed properly"
 '''
 # iframe
 
-driver.implicitly_wait(2)
-driver.get("https://demo.automationtesting.in/Frames.html")
-driver.maximize_window()
-Page_title = driver.title
-assert Page_title == "Frames"
-driver.switch_to.frame("singleframe")
-frame_name = driver.find_element(By.TAG_NAME,'h5').text
-assert frame_name == 'iFrame Demo'
-print(frame_name)
-text_box = driver.find_element(By.XPATH,'//input[@type="text"]')
-text_box.clear()
-text_box.send_keys("Bring my laptop")
+# driver.implicitly_wait(2)
+# driver.get("https://demo.automationtesting.in/Frames.html")
+# driver.maximize_window()
+# Page_title = driver.title
+# assert Page_title == "Frames"
+# driver.switch_to.frame("singleframe")
+# frame_name = driver.find_element(By.TAG_NAME,'h5').text
+# assert frame_name == 'iFrame Demo'
+# print(frame_name)
+# text_box = driver.find_element(By.XPATH,'//input[@type="text"]')
+# text_box.clear()
+# text_box.send_keys("Bring my laptop")
+
+# driver.implicitly_wait(2)
+# driver.get("https://rahulshettyacademy.com/AutomationPractice/")
+# driver.maximize_window()
+# # driver.execute_script("window.scrollTo(0,500)")
+# time.sleep(2)
+# driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+# driver.get_screenshot_as_file("a.png")
 
 
+# driver.implicitly_wait(2)
+# driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+# driver.maximize_window()
+# browser_list = []
+# vegis_list = []
+# Select (driver.find_element(By.ID,'page-menu')).select_by_value("20")
+# vegis_sort_element = driver.find_element(By.XPATH,'//span[text()="Veg/fruit name"]')
+# vegis_sort_element.click()
+# time.sleep(2)
+# Vegitables = driver.find_elements(By.XPATH,'//tr/td[1]')
 
+# for vegis in Vegitables:
+#     browser_list.append(vegis_list)
+# sorted_list = browser_list.copy()
+# sorted_list.sort()
+# assert sorted_list == browser_list
+
+
+book = openpyxl.load_workbook("D:\GIT\Class_Lavanya\selenium\python_data.xlsx")
+sheet = book.active
+
+#  To read the value 
+cell = sheet.cell(row = 1, column =2)
+cell.value
+print(cell.value)
+
+# shrot method --> this is best
+print(sheet['B1'].value)
+
+# To write the values
+
+sheet.cell(row = 2, column = 2).value="Vinoth"
+sheet.cell(row = 2, column = 3).value="babu"
+sheet.cell(row = 2, column = 4).value="abc@gmail.com"
+print(sheet['B2'].value)
+
+# To get max row
+print(sheet.max_row)
+
+# To get max col
+print(sheet.max_column)
 
