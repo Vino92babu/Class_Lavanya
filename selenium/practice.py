@@ -246,27 +246,103 @@ assert Page_title == 'The Internet' , "Page is not landed properly"
 # assert sorted_list == browser_list
 
 
-book = openpyxl.load_workbook("D:\GIT\Class_Lavanya\selenium\python_data.xlsx")
-sheet = book.active
+# book = openpyxl.load_workbook("D:\GIT\Class_Lavanya\selenium\python_data.xlsx")
+# sheet = book.active
 
 #  To read the value 
-cell = sheet.cell(row = 1, column =2)
-cell.value
-print(cell.value)
+# cell = sheet.cell(row = 1, column =2)
+# cell.value
+# print(cell.value)
 
 # shrot method --> this is best
-print(sheet['B1'].value)
+# print(sheet['B1'].value)
 
 # To write the values
 
-sheet.cell(row = 2, column = 2).value="Vinoth"
-sheet.cell(row = 2, column = 3).value="babu"
-sheet.cell(row = 2, column = 4).value="abc@gmail.com"
-print(sheet['B2'].value)
+# sheet.cell(row = 2, column = 2).value="Vinoth"
+# sheet.cell(row = 2, column = 3).value="babu"
+# sheet.cell(row = 2, column = 4).value="abc@gmail.com"
+# print(sheet['B2'].value)
 
-# To get max row
-print(sheet.max_row)
+# # To get max row
+# print(sheet.max_row)
 
-# To get max col
-print(sheet.max_column)
+# # To get max col
+# print(sheet.max_column)
+
+# print("____________________________________________________________")
+
+# To read all the value in sheet using loop 
+
+# for i in range(1,sheet.max_row +1):
+#     for j in range(1,sheet.max_column +1):
+#         print(sheet.cell(row=i,column=j).value)
+
+#  to read specific testcase data value in sheet using loop.
+
+# for i in range(1,sheet.max_row +1):
+#     if sheet.cell(row=i, column=1).value=="Testcase3":
+#         for j in range(2,sheet.max_column+1):
+#             print(sheet.cell(row=i, column=j).value)
+
+#  to read specific testcase data value in sheet using loop and store in dict.
+
+# Dict = {}
+# for i in range(1,sheet.max_row+1):
+#     if sheet.cell(row=i,column=1).value == "Testcase3":
+#         for j in range(2,sheet.max_column+1):
+#             Dict[sheet.cell(row=1,column=j).value] = sheet.cell(row=i,column=j).value
+# print(Dict)
+
+
+def excel_dowload():
+    driver.implicitly_wait(4)
+    driver.get("https://rahulshettyacademy.com/upload-download-test/")
+    driver.maximize_window()
+    page_title = driver.title
+    assert page_title == "RS Web Table Automation Page"
+    download_button = '//button[@id="downloadButton"]'
+    wait = WebDriverWait(driver, 15)
+    wait.until(expected_conditions.element_to_be_clickable(driver.find_element(By.XPATH,download_button)))
+    driver.find_element(By.XPATH,download_button).click()
+    time.sleep(5)
+
+excel_dowload()
+
+file_path = r"C:\Users\vino9\Downloads\download.xlsx"
+search_name = 'Banana'
+new_value = 1255
+col_name = "price"
+
+def update_upload_excel_data(filepath, searchname, colname, newvalue):
+    book = openpyxl.load_workbook(filepath)
+    sheet = book.active
+    data = {}
+
+    for i in range(1,sheet.max_column+1):
+        if sheet.cell(row =1, column=i).value == colname:
+            data["col"] = i
+
+    for i in range(1, sheet.max_row+1):
+        for j in range(1,sheet.max_column +1):
+            if sheet.cell(row= i, column= j).value == searchname:
+                data['row'] = i
+
+    sheet.cell(row=data["row"], column= data["col"]).value = newvalue
+    book.save(filepath)
+
+    file_input = driver.find_element(By.XPATH,'//button[@id="downloadButton"]')
+    file_input.send_keys(filepath)
+    time.sleep(5)
+    price_column =  driver.find_element(By.XPATH,'//div[text()="Price"]').get_attribute("data-column-id")
+    actual_price = driver.find_element(By.XPATH,f'//div[text()="{searchname}"]/parent::div/parent::div/div[@id="cell-{price_column}-undefined"]').text
+    print(actual_price)
+    assert int(actual_price) == new_value
+
+update_upload_excel_data(file_path, search_name, col_name, new_value)
+
+
+
+
+
 
