@@ -314,28 +314,30 @@ search_name = 'Banana'
 new_value = 1255
 col_name = "price"
 
-def update_upload_excel_data(filepath, searchname, colname, newvalue):
-    book = openpyxl.load_workbook(filepath)
+def update_upload_excel_data(file_path, search_name, col_name, new_value):
+    book = openpyxl.load_workbook(file_path)
     sheet = book.active
     data = {}
 
     for i in range(1,sheet.max_column+1):
-        if sheet.cell(row =1, column=i).value == colname:
+        if sheet.cell(row =1, column=i).value == col_name:
             data["col"] = i
 
     for i in range(1, sheet.max_row+1):
         for j in range(1,sheet.max_column +1):
-            if sheet.cell(row= i, column= j).value == searchname:
+            if sheet.cell(row= i, column= j).value == search_name:
                 data['row'] = i
 
-    sheet.cell(row=data["row"], column= data["col"]).value = newvalue
-    book.save(filepath)
+    sheet.cell(row=data["row"], column= data["col"]).value = new_value
+    book.save(file_path)
 
     file_input = driver.find_element(By.XPATH,'//button[@id="downloadButton"]')
-    file_input.send_keys(filepath)
+
+    
+    file_input.send_keys(file_path)
     time.sleep(5)
     price_column =  driver.find_element(By.XPATH,'//div[text()="Price"]').get_attribute("data-column-id")
-    actual_price = driver.find_element(By.XPATH,f'//div[text()="{searchname}"]/parent::div/parent::div/div[@id="cell-{price_column}-undefined"]').text
+    actual_price = driver.find_element(By.XPATH,f'//div[text()="{search_name}"]/parent::div/parent::div/div[@id="cell-{price_column}-undefined"]').text
     print(actual_price)
     assert int(actual_price) == new_value
 
