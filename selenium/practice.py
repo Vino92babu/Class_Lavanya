@@ -331,7 +331,7 @@ def update_upload_excel_data(file_path, search_name, col_name, new_value):
     sheet.cell(row=data["row"], column= data["col"]).value = new_value
     book.save(file_path)
 
-    file_input = driver.find_element(By.XPATH,'//button[@id="downloadButton"]')
+    file_input = driver.find_element(By.XPATH,'//input[@type="file"]')
 
     
     file_input.send_keys(file_path)
