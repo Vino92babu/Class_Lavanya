@@ -3,21 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                dir('SauceDemo') {
+                    bat 'python -m pip install -r requirements.txt'
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest -v -n 2 --html=reports/report.html --self-contained-html --alluredir=allure-results'
+                dir('SauceDemo') {
+                    bat 'python -m pytest -v -n 2 --html=reports/report.html --self-contained-html --alluredir=allure-results'
+                }
             }
         }
     }
