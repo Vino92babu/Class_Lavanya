@@ -22,6 +22,7 @@ pipeline {
 
     post {
         always {
+
             publishHTML([
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
@@ -29,6 +30,10 @@ pipeline {
                 reportDir: 'SauceDemo/reports',
                 reportFiles: 'report.html',
                 reportName: 'Pytest HTML Report'
+            ])
+
+            allure([
+                results: [[path: 'SauceDemo/allure-results']]
             ])
 
             echo 'Automation execution completed'
